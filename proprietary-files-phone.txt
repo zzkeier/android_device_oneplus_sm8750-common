@@ -71,8 +71,8 @@ vendor/lib64/vendor.qti.hardware.mwqemadapteraidlservice-V1-ndk.so
 vendor/lib64/vendor.qti.latencyaidlservice-V1-ndk.so
 
 # Context Hub
-odm/etc/init/android.hardware.contexthub-service.qmi.rc
-odm/etc/vintf/manifest/android.hardware.contexthub-service.qmi.xml
+#vendor/etc/init/android.hardware.contexthub-service.qmi.rc
+#odm/etc/vintf/manifest/android.hardware.contexthub-service.qmi.xml
 vendor/bin/hw/android.hardware.contexthub-service.qmi
 vendor/etc/chre/preloaded_nanoapps.json
 
@@ -141,9 +141,9 @@ vendor/lib64/vendor.libdpmtcm.so
 vendor/lib64/vendor.qti.hardware.dpmaidlservice-V1-ndk.so;MODULE_SUFFIX=_vendor
 
 # eSIM
-odm/bin/hw/vendor.oplus.hardware.esim@1.0-service
-odm/etc/init/esim@1.0-service.rc
-odm/etc/vintf/manifest/manifest_oplus_esim.xml
+#odm/bin/hw/vendor.oplus.hardware.esim@1.0-service
+#odm/etc/init/esim@1.0-service.rc
+#odm/etc/vintf/manifest/manifest_oplus_esim.xml
 
 # Fingerprint
 odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff
@@ -345,7 +345,7 @@ odm/etc/oem_asm2_tunner_platform_license.pfm
 odm/etc/oem_asm2_tunner_platform_trail_license.pfm
 odm/etc/oem_q_tunner_platform_license.pfm
 odm/etc/oem_q_tunner_platform_trail_license.pfm
-odm/etc/oem_stx_platform_license.pfm
+#odm/etc/oem_stx_platform_license.pfm
 odm/etc/plugin_config.xml
 odm/lib64/lib-virtual-modem-protos.so
 odm/lib64/libcommcenterfw.so

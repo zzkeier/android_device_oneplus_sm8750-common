@@ -47,7 +47,7 @@ odm/etc/audio_algos_ver/OPREC_version.txt
 odm/etc/audio_algos_ver/OPSPT_Version.txt
 odm/etc/audio_algos_ver/OPSR_Version.txt
 odm/etc/audio_algos_ver/OPVE_Version.txt
-odm/etc/init/init.audio.rc
+#odm/etc/init/init.audio.rc
 odm/lib64/libtfa98xx.so
 vendor/etc/models/acd/environment.eai
 vendor/etc/models/acd/event.eai
@@ -435,10 +435,10 @@ system_ext/etc/horae/horae.conf
 system_ext/etc/init/horae.rc
 
 # Hotword Enrollment
-my_product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml:product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml
-my_product/framework/com.android.hotwordenrollment.common.util.jar:product/framework/com.android.hotwordenrollment.common.util.jar
-my_product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk:product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
-my_product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk:product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
+#my_product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml:product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml
+#my_product/framework/com.android.hotwordenrollment.common.util.jar:product/framework/com.android.hotwordenrollment.common.util.jar
+#my_product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk:product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
+#my_product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk:product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
 
 # Identity
 vendor/bin/hw/android.hardware.identity-service-qti
