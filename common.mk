@@ -250,8 +250,8 @@ PRODUCT_PACKAGES += \
 
 ifneq ($(TARGET_IS_TABLET),true)
 PRODUCT_PACKAGES += \
-    android.hardware.security.keymint3-service.strongbox.nxp \
-    android.hardware.weaver-service.nxp
+    android.hardware.security.keymint3-service.strongbox.nxp
+    #android.hardware.weaver-service.nxp
 endif
 
 PRODUCT_COPY_FILES += \
