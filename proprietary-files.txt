@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from OnePlus 13 (CPH2653_16.0.5.701(EX01)).
+## are from OnePlus 13T (PKX110_16.0.3.501(CN01)).
 
 # ACDBs
 vendor/etc/acdbdata/nn_vad_models/fai__3.0.0_0.0__eai_4.2_enpuv5.pmd
@@ -42,7 +42,6 @@ odm/etc/audio_algos_ver/OPREC_version.txt
 odm/etc/audio_algos_ver/OPSPT_Version.txt
 odm/etc/audio_algos_ver/OPSR_Version.txt
 odm/etc/audio_algos_ver/OPVE_Version.txt
-odm/etc/init/init.audio.rc
 odm/lib64/libtfa98xx.so
 vendor/etc/models/acd/environment.eai
 vendor/etc/models/acd/event.eai
@@ -388,6 +387,9 @@ vendor/lib64/libmapperutils.so
 vendor/firmware/gen70900_aqe.fw
 vendor/firmware/gen70900_sqe.fw
 vendor/firmware/gen70900_zap.mbn
+vendor/firmware/gen70e00_sqe.fw
+vendor/firmware/gen70e00_zap.mbn
+vendor/firmware/gen71700_gmu.bin
 vendor/firmware/gen80000_aqe.fw
 vendor/firmware/gen80000_gmu.bin
 vendor/firmware/gen80000_sqe.fw
@@ -428,12 +430,6 @@ system/lib64/libostatslog.so:system_ext/lib64/libostatslog.so
 system_ext/bin/horae
 system_ext/etc/horae/horae.conf
 system_ext/etc/init/horae.rc
-
-# Hotword Enrollment
-my_product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml:product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml
-my_product/framework/com.android.hotwordenrollment.common.util.jar:product/framework/com.android.hotwordenrollment.common.util.jar
-my_product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk:product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
-my_product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk:product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
 
 # Identity
 vendor/bin/hw/android.hardware.identity-service-qti
@@ -569,6 +565,7 @@ odm/lib64/libaiboost_ubwc.so
 
 # OPLUS Charger
 odm/bin/hw/gauged
+odm/bin/hw/ufcsd
 odm/bin/hw/vendor.oplus.hardware.charger-V10-service
 odm/bin/hw/wlschgd
 odm/etc/init/vendor.oplus.hardware.charger-V10-service.rc
@@ -992,6 +989,8 @@ vendor/lib64/vendor.qti.hardware.vpp@1.2.so
 vendor/lib64/vendor.qti.hardware.vpp@1.3.so
 
 # VPU firmware
+vendor/firmware/vpu30_2v.mbn
+vendor/firmware/vpu30_2v_unsigned.mbn
 vendor/firmware/vpu33_4v.mbn
 vendor/firmware/vpu33_4v_unsigned.mbn
 vendor/firmware/vpu35_4v.mbn
