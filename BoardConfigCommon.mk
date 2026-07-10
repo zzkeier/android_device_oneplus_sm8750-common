@@ -183,7 +183,6 @@ BOARD_USES_METADATA_PARTITION := true
 
 # Partitions
 BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
--include vendor/lineage/config/BoardConfigReservedSize.mk
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
@@ -223,8 +222,13 @@ BOOT_SECURITY_PATCH := 2026-03-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy
+ifneq ($(wildcard device/qcom/sepolicy_vndr/SEPolicy.mk),)
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+endif
+
+ifneq ($(wildcard hardware/oplus/sepolicy/qti/SEPolicy.mk),)
 include hardware/oplus/sepolicy/qti/SEPolicy.mk
+endif
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
