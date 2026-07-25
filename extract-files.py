@@ -34,6 +34,7 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
+        'com.qualcomm.qti.dpm.api@1.0',
         'vendor.qti.ImsRtpService-V1-ndk',
         'vendor.qti.diaghal-V1-ndk',
         'vendor.qti.hardware.dpmaidlservice-V1-ndk',
@@ -87,6 +88,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_line_if_missing('sched_get_priority_max: 1'),
     'vendor/lib64/hw/libaudiocorehal.qti.so': blob_fixup()
         .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk_prebuilt.so'),
+    'odm/lib64/liboprec_audrec.so': blob_fixup()
+        .replace_needed('libstdc++.so', 'libstdc++_vendor.so'),
     'vendor/lib64/android.hardware.bluetooth.audio-impl_prebuilt.so': blob_fixup()
         .replace_needed('libbluetooth_audio_session_aidl.so', 'libbluetooth_audio_session_aidl_prebuilt.so'),
     (
