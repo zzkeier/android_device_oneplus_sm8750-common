@@ -59,8 +59,11 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(r'/\* (Huo\.Chen@SYSTEM\.RF, 2024/09/06, Add for ICC) \*/', r'# \1'),
     'product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml': blob_fixup()
         .regex_replace('/my_product', '/product'),
-    'system/framework/WfdCommon.jar': blob_fixup()
-        .apktool_patch('blob-patches/WfdCommon.patch'),
+    # WfdCommon.jar: 上游 24.0 的 WFD system blobs 是从另一台机 (marvel_g A171WEH.20) 换过来的，
+    # 那个 jar 需要本补丁补一个 4 参 listen 重载。本分支用 PKX110 原厂 WFD blobs，jar 里本来
+    # 就带 4 参 listen（且没有补丁所调用的 6 参版本），补丁在此既打不上也不兼容，故不应用。
+    # 'system/framework/WfdCommon.jar': blob_fixup()
+    #     .apktool_patch('blob-patches/WfdCommon.patch'),
     'system_ext/bin/horae': blob_fixup()
         .replace_needed('libprotobuf-cpp-lite.so', 'libprotobuf-cpp-lite-21.7.so'),
     (
