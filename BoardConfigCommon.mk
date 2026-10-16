@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2021-2026 The LineageOS Project
-#
+# SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -43,8 +42,6 @@ AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 BOARD_SUPPORTS_OPENSOURCE_STHAL := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
-TARGET_PROVIDES_AUDIO_HAL := true
-TARGET_PROVIDES_LIBAR_PAL := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sun
@@ -60,10 +57,10 @@ BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
 
 # Properties
-TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
-TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
-TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
-TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+TARGET_ODM_PROP += $(COMMON_PATH)/properties/odm.prop
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/properties/product.prop
+TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/properties/system_ext.prop
+TARGET_VENDOR_PROP += $(COMMON_PATH)/properties/vendor.prop
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
@@ -147,7 +144,8 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/spu-kernel \
     qcom/opensource/video-driver \
     qcom/opensource/wlan/platform \
-    qcom/opensource/wlan/qcacld-3.0 \
+    qcom/opensource/wlan/qcacld-3.0/.peach_v2 \
+    qcom/opensource/wlan/qcacld-3.0/.wcn7750 \
     qcom/opensource/bt-kernel \
     nxp/opensource/driver
 
@@ -160,7 +158,6 @@ TARGET_KERNEL_EXT_MODULES += \
     oplus/kernel/device_info/pogo_keyboard:kbuild \
     oplus/kernel/device_info/tri_state_key:kbuild \
     oplus/kernel/dfr:kbuild \
-    oplus/kernel/graphics:kbuild \
     oplus/kernel/network/oplus_network_oem_qmi:kbuild \
     oplus/kernel/network/oplus_network_esim:kbuild \
     oplus/kernel/network/oplus_network_sim_detect:kbuild \
@@ -219,7 +216,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security
-BOOT_SECURITY_PATCH := 2026-03-01
+BOOT_SECURITY_PATCH := 2026-09-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy

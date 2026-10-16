@@ -321,11 +321,13 @@ vendor/bin/rmt_storage
 vendor/etc/init/vendor.qti.rmt_storage.rc
 
 # RIL
+odm/bin/hw/mdm_feature
 odm/bin/hw/subsys_daemon
 odm/bin/commcenterd
 odm/bin/init.subsys.sh
 odm/etc/init/commcenterd.rc
 odm/etc/init/init.network.rc
+odm/etc/init/mdm_feature.rc
 odm/etc/init/subsys_daemon.rc
 odm/etc/vintf/manifest/device_manifest_communication_center_aidl.xml
 odm/etc/vintf/manifest/device_manifest_subsys.xml
@@ -495,19 +497,12 @@ odm/bin/hw/android.hardware.secure_element-service.qti
 odm/etc/init/android.hardware.secure_element-service.qti.rc
 odm/etc/vintf/manifest/secure_element-service.xml
 odm/etc/vintf/manifest/secure_element_omapi_service.xml
+odm/etc/hal_uuid_map_config.xml:vendor/etc/hal_uuid_map_config.xml;SYMLINK=hal_uuid_map_7.xml,hal_uuid_map_23.xml,hal_uuid_map_29.xml,hal_uuid_map_31.xml;TRYSRCFIRST
 odm/lib64/libsecurity_event_olc_vnd.so
 vendor/lib64/hw/libEseUtils.so
 vendor/lib64/libGPMTEEC_vendor.so
 vendor/lib64/libGPQeSE.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libesesbprovision.so
-
-# Soter
-system_ext/app/SoterService/SoterService.apk
-vendor/bin/hw/vendor.qti.hardware.soter-service
-vendor/etc/init/vendor.qti.hardware.soter-service.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.soter-service.xml
-vendor/lib64/hw/vendor.qti.hardware.soter-impl.so
-vendor/lib64/vendor.qti.hardware.soter-V1-ndk.so
 
 # vi:ft=conf

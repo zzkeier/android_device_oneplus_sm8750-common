@@ -1,8 +1,12 @@
 #
-# Copyright (C) 2022-2025 The LineageOS Project
-#
+# SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
+
+# Firmware directory Path
+# Below macro will be read by uevent and path will
+# be added to search path for firmware loading
+firmware_directories /mnt/vendor/persist/copy/ /odm/etc/wifi/ /mnt/vendor/persist/ /vendor/firmware_mnt/image/
 
 subsystem adf
     devname uevent_devname
@@ -36,6 +40,3 @@ firmware_directories /mnt/vendor/persist/display/
 /dev/block/bootdevice/by-name/oplusreserve5    0660    root    system
 /dev/block/sdf5   0660   root     system
 /dev/block/sdf6   0660   root     system
-
-# WiFi
-firmware_directories /mnt/vendor/persist/copy/ /odm/etc/wifi/ /mnt/vendor/persist/
