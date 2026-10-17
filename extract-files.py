@@ -71,8 +71,27 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/etc/seccomp_policy/syshealthmon.policy'
     ): blob_fixup()
         .add_line_if_missing('lseek: 1'),
-    'system_ext/lib64/libwfdservice.so': blob_fixup()
-        .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
+        'system_ext/lib64/libwfdcommonutils.so': blob_fixup()
+            .remove_needed('libheif.so'),
+        # libwfdmmsrc_system calls the old SurfaceComposerClient::createVirtualDisplay
+        # (string, bool, bool, string, float); AOSP 17 added the ownerUid parameter.
+        # The matching old overload lives in compat's libgui_shim.
+        # It also needs AudioSystem's getParameters/setParameters/addErrorCallback/
+        # removeErrorCallback, which are provided by libaudiobase.
+        'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
+            .add_needed('libgui_shim.so')
+            .add_needed('libaudiobase.so'),
+        # libwfdnative calls the old MotionEvent::initialize signature, which AOSP 17
+        # changed; compat's libinput_shim carries the old overload.
+        'system_ext/lib64/libwfdnative.so': blob_fixup()
+            .add_needed('libinput_shim.so'),
+        'system_ext/lib64/libwfdservice.so': blob_fixup()
+            .add_needed('libwfdservice_shim.so')
+            # AudioSystem::setDeviceConnectionState() is now built into libaudiobase and
+            # libaudioclient only exports part of it; the static ELF check requires a
+            # direct dependency.
+            .add_needed('libaudiobase.so')
+            .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
     'vendor/bin/system_dlkm_modprobe.sh': blob_fixup()
         .regex_replace(r'.*\bzram or zsmalloc\b.*\n', '')
         .regex_replace(r'-e "zram" -e "zsmalloc"', ''),
@@ -103,10 +122,9 @@ blob_fixups: blob_fixups_user_type = {
             b'BluetoothAudioSession14GetAudioConfigEv',
             b'BluetoothAudioSession14GetAudioConfV4Ev',
         ),
-    (
-        'vendor/lib64/libhwcsensor.so',
-        'vendor/lib64/libsdmclient.so',
-    ): blob_fixup()
+    # libhwcsensor is currently unused (it depends on libcwb_qcom_aidl, which is not in
+    # the tree), so it was dropped from the proprietary file list.
+    'vendor/lib64/libsdmclient.so': blob_fixup()
         .replace_needed('vendor.qti.hardware.display.config-V11-ndk.so', 'vendor.qti.hardware.display.config-V12-ndk.so'),
     (
         'vendor/lib64/libloc_api_v02.so',
