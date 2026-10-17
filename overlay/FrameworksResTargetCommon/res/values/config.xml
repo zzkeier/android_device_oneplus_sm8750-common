@@ -4,6 +4,23 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+    <!-- Miracast (Wi-Fi Display) is not usable on this ROM, so keep it disabled.
+         hardware/oplus' overlay (android.overlay.common, priority 200) sets it to true
+         for ColorOS: there, system_server runs a Qualcomm-patched WifiDisplayController
+         that binds com.qualcomm.wfd.service (WfdService.apk + wfdservice64 do ship on
+         the device). Our build uses the AOSP/Lineage frameworks/base instead, where
+         android.media.RemoteDisplay goes to
+         MediaPlayerService::listenForRemoteDisplay, and AOSP removed that native
+         implementation back in 2017 (d0a98fa05f "stagefright: remove Miracast sender
+         code"), leaving only an ALOGE + return NULL. As a result RemoteDisplay.listen()
+         throws IllegalStateException on the android.display thread and kills
+         system_server (seen as a "SystemUI restart"/soft reboot) on every attempt to
+         connect to a Miracast sink.
+         Note: config_enableWifiDisplay is not in framework-res' overlayable list, so only
+         an isStatic overlay like this one can change it (an RRO cannot).
+         Flip this back to true once the Qualcomm WFD framework patch is ported. -->
+    <bool name="config_enableWifiDisplay">false</bool>
+
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
