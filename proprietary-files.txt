@@ -187,7 +187,6 @@ vendor/lib64/libdisplayskuutils.so
 vendor/lib64/libdpps.so
 vendor/lib64/libfeutils.so
 vendor/lib64/libgame_enhance.so
-vendor/lib64/libhwcsensor.so
 vendor/lib64/libintervmipc.so
 vendor/lib64/libqdcm-algo.so
 vendor/lib64/libqdcm-json-mode-parser.so
@@ -545,9 +544,9 @@ odm/lib64/libaiboost_ubwc.so
 # OPLUS Charger
 odm/bin/hw/gauged
 odm/bin/hw/ufcsd
-odm/bin/hw/vendor.oplus.hardware.charger-V10-service
+odm/bin/hw/vendor.oplus.hardware.charger-V11-service
 odm/bin/hw/wlschgd
-odm/etc/init/vendor.oplus.hardware.charger-V10-service.rc
+odm/etc/init/vendor.oplus.hardware.charger-V11-service.rc
 odm/etc/vintf/manifest/manifest_oplus_charger_aidl.xml
 odm/etc/charge.cfg
 odm/lib64/libGaiaClient_vnd.so
