@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-FileCopyrightText: The AbyssOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-    <!-- Sensor types -->
+    <!-- 抬起：13T 上是 pick_up_motion（android.sensor.tilt_detector） -->
     <string name="pickup_sensor_type">android.sensor.tilt_detector</string>
-
-    <!-- Sensor trigger values -->
     <item name="pickup_sensor_value" format="float" type="dimen">0.0</item>
+
+    <!-- 口袋：13T 没有独立的 pocket 传感器，用近距离传感器（near = 0.0）代替 -->
+    <string name="pocket_sensor_type">android.sensor.proximity</string>
+    <item name="pocket_sensor_value" format="float" type="dimen">0.0</item>
 </resources>
